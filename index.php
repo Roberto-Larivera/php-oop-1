@@ -63,13 +63,13 @@ class Movie
 //var_dump(new Movie);
 
 $bussanoAllaPorta = new Movie('Bussano Alla Porta', '02/02/2023', 'La piccola Wen, adottata dalla coppia formata da Eric e Andrew si appresta a una gioiosa vacanza in una baita in mezzo al bosco quando viene avvicinata da un uomo inquietante...');
-var_dump($bussanoAllaPorta);
+//var_dump($bussanoAllaPorta);
 
 $avatarLaViaDellAcqua = new Movie('Avatar - La via dell\'acqua', '14/12/2022', 'Jake Sully vive con la sua nuova famiglia sul pianeta Pandora. Ma quando una vecchia, familiare minaccia torna ad affacciarsi...');
-var_dump($avatarLaViaDellAcqua);
+//var_dump($avatarLaViaDellAcqua);
 
 $topGunMaverick = new Movie('Top Gun: Maverick', '25/05/2022', 'Dopo più di trent’anni di servizio nella Marina, il Tenente Pete “Maverick” Mitchell è proprio dove vorrebbe essere: un pilota coraggioso che può spingersi oltre ogni limite, cercando di schivare l’avanzamento...');
-var_dump($topGunMaverick);
+//var_dump($topGunMaverick);
 
 $movies =[];
 
@@ -77,6 +77,15 @@ $movies[] = $bussanoAllaPorta;
 $movies[] = $avatarLaViaDellAcqua;
 $movies[] = $topGunMaverick;
 
+
+$title_movie = $_GET['title_movie']??null;
+$date_movie = $_GET['date_movie']??null;
+$description_movie = $_GET['description_movie']??null;
+
+if($title_movie !== null && $date_movie !== null && $description_movie !== null){
+    $movies[]=  new Movie($title_movie, $date_movie,$description_movie );
+    
+}
 var_dump($movies);
 
 ?>
@@ -104,20 +113,20 @@ var_dump($movies);
                 </p>
             </div>
             <div class="col">
-                <form action="GET" class="row">
+                <form action="" method="GET" class="row">
                     <div class="col-6">
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="staticEmail2" placeholder="Titolo del film">
-                            <label for="staticEmail2" class="floatingInput">Titolo</label>
+                            <input type="text" class="form-control" id="title_movie" name="title_movie" placeholder="Titolo del film">
+                            <label for="title_movie" class="floatingInput">Titolo</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="date" class="form-control" id="staticEmail2" placeholder="Data di uscita del film">
-                            <label for="staticEmail2" class="floatingInput">Data Uscita</label>
+                            <input type="date" class="form-control" id="date_movie" name="date_movie" placeholder="Data di uscita del film">
+                            <label for="date_movie" class="floatingInput">Data Uscita</label>
                         </div>
                     </div>
                     <div class="form-floating col-6 mb-3 align-self-stretch">
-                        <textarea class="form-control h-100" id="exampleFormControlTextarea1" rows="3" placeholder="La migliore descrizione di uesto film"></textarea>
-                        <label for="exampleFormControlTextarea1" class="floatingTextarea2">Descrizione</label>
+                        <textarea class="form-control h-100" id="description_movie" name="description_movie" rows="3" placeholder="La migliore descrizione di uesto film"></textarea>
+                        <label for="description_movie" class="floatingTextarea2">Descrizione</label>
                     </div>
                     <div class="col-auto">
                     <button type="submit" class="btn btn-primary">Inserisci</button>
