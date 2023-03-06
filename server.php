@@ -1,5 +1,5 @@
 <?php
-
+include_once __DIR__.'/server.php';
 class Movie
 {
     private $title;
