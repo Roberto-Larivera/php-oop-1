@@ -49,16 +49,28 @@ include_once __DIR__.'/server.php';
             </div>
         </div>
         <div class="row row-cols-4">
-            <?php foreach($movies as $movie){ ?>
+            <?php foreach($movies as $keyMovie => $movie){ ?>
             <div class="col mb-4">
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $movie->getTitle() ?></h5>
                         <h6 class="card-subtitle mb-2 text-muted"><?php echo $movie->getPublicationDate() ?></h6>
-                        <h6 class="card-subtitle mb-2"><?php if($movie -> getType() !== null){echo implode(", " , $movie -> getType());}  ?></h6>
+                        <ul>
+                            <?php foreach($movie -> type as $typeSingle){ ?>
+                            <li>
+                            <?php echo $typeSingle   ?>
+                            </li>
+                            <?php } ?>
+                        </ul>
+                        <ul>
+                            <?php foreach($movie -> platform as $typeSingle){ ?>
+                            <li>
+                            <?php echo $typeSingle   ?>
+                            </li>
+                            <?php } ?>
+                        </ul>
                         <p class="card-text"><?php echo $movie->getDescription() ?></p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
+                        <a <?php echo 'href="upgrade.php/?id='.$keyMovie.'"' ?> class="card-link">Aggiorna Dati</a>
                     </div>
                 </div>
             </div>
