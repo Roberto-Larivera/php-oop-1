@@ -55,6 +55,7 @@ include __DIR__.'/server.php';
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $movie->getTitle() ?></h5>
                         <h6 class="card-subtitle mb-2 text-muted"><?php echo $movie->getPublicationDate() ?></h6>
+                        <h6 class="card-subtitle mb-2"><?php if($movie -> getType() !== null){echo implode(", " , $movie -> getType());}  ?></h6>
                         <p class="card-text"><?php echo $movie->getDescription() ?></p>
                         <a href="#" class="card-link">Card link</a>
                         <a href="#" class="card-link">Another link</a>

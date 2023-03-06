@@ -6,7 +6,7 @@ class Movie
     private $description;
     public $availability;
     private $publicationDate;
-    public $type;
+    public  $type;
     public $certification;
     public $language;
     public $userVote;
@@ -77,7 +77,7 @@ class Movie
         if (is_numeric($element)) {
             echo 'Il parametro type deve essere una stringa';
         } else {
-            $this->type = $element;
+            $this->type = [$element];
         }
     }
     public function getType()
@@ -148,6 +148,9 @@ $avatarLaViaDellAcqua = new Movie('Avatar - La via dell\'acqua', '14/12/2022', '
 
 $topGunMaverick = new Movie('Top Gun: Maverick', '25/05/2022', 'Dopo più di trent’anni di servizio nella Marina, il Tenente Pete “Maverick” Mitchell è proprio dove vorrebbe essere: un pilota coraggioso che può spingersi oltre ogni limite, cercando di schivare l’avanzamento...');
 //var_dump($topGunMaverick);
+
+$topGunMaverick -> setType('Azione, Dramma');
+var_dump($topGunMaverick -> getType());
 
 $movies =[];
 
