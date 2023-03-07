@@ -1,5 +1,6 @@
 <?php
-include_once __DIR__.'/server.php';
+    require_once __DIR__ . '/classes/Movie.php';
+    require_once __DIR__.'/server.php';
 
 
 ?>
@@ -16,43 +17,12 @@ include_once __DIR__.'/server.php';
 </head>
 
 <body>
-    <div class="container">
-        <div class="row row-cols-1">
-            <div class="col">
-                <h2>
-                    Aggiungi un nuovo film
-                </h2>
-                <p>
-                    Aggiungi il titolo, la descrizione e la data dell'uscita, il resto, lo puoi fare in un secondo momento se vuoi!
-                </p>
-            </div>
-            <div class="col">
-                <form action="" method="GET" class="row">
-                    <div class="col-6">
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="title_movie" name="title_movie" placeholder="Titolo del film">
-                            <label for="title_movie" class="floatingInput">Titolo</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="date" class="form-control" id="date_movie" name="date_movie" placeholder="Data di uscita del film">
-                            <label for="date_movie" class="floatingInput">Data Uscita</label>
-                        </div>
-                    </div>
-                    <div class="form-floating col-6 mb-3 align-self-stretch">
-                        <textarea class="form-control h-100" id="description_movie" name="description_movie" rows="3" placeholder="La migliore descrizione di uesto film"></textarea>
-                        <label for="description_movie" class="floatingTextarea2">Descrizione</label>
-                    </div>
-                    <div class="col-auto">
-                    <button type="submit" class="btn btn-primary">Inserisci</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="row row-cols-4">
+    <div class="container p-5">
+        <div class="row row-cols-5">
             <?php foreach($movies as $keyMovie => $movie){ ?>
             <div class="col mb-4">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
+                <div class="card h-100">
+                    <div class="card-body d-flex flex-column justify-content-between">
                         <h5 class="card-title"><?php echo $movie->getTitle() ?></h5>
                         <h6 class="card-subtitle mb-2 text-muted"><?php echo $movie->getPublicationDate() ?></h6>
                         <ul>
@@ -70,7 +40,6 @@ include_once __DIR__.'/server.php';
                             <?php } ?>
                         </ul>
                         <p class="card-text"><?php echo $movie->getDescription() ?></p>
-                        <a <?php echo 'href="upgrade.php/?id='.$keyMovie.'"' ?> class="card-link">Aggiorna Dati</a>
                     </div>
                 </div>
             </div>

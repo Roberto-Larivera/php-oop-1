@@ -127,8 +127,8 @@ class Movie
 
     public function setDuration($element)
     {
-        if (is_numeric($element)) {
-            echo 'Il parametro duration deve essere una stringa';
+        if (!is_numeric($element)) {
+            echo 'Il parametro duration deve essere un numero';
         } else {
             $this->duration = $element;
         }
