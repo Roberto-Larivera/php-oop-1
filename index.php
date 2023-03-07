@@ -1,8 +1,6 @@
 <?php
-    require_once __DIR__ . '/classes/Movie.php';
-    require_once __DIR__.'/server.php';
-
-
+require_once __DIR__ . '/classes/Movie.php';
+require_once __DIR__ . '/server.php';
 ?>
 
 <!DOCTYPE html>
@@ -18,31 +16,31 @@
 
 <body>
     <div class="container p-5">
-        <div class="row row-cols-5">
-            <?php foreach($movies as $keyMovie => $movie){ ?>
-            <div class="col mb-4">
-                <div class="card h-100">
-                    <div class="card-body d-flex flex-column justify-content-between">
-                        <h5 class="card-title"><?php echo $movie->getTitle() ?></h5>
-                        <h6 class="card-subtitle mb-2 text-muted"><?php echo $movie->getPublicationDate() ?></h6>
-                        <ul>
-                            <?php foreach($movie -> type as $typeSingle){ ?>
-                            <li>
-                            <?php echo $typeSingle   ?>
-                            </li>
-                            <?php } ?>
-                        </ul>
-                        <ul>
-                            <?php foreach($movie -> platform as $typeSingle){ ?>
-                            <li>
-                            <?php echo $typeSingle   ?>
-                            </li>
-                            <?php } ?>
-                        </ul>
-                        <p class="card-text"><?php echo $movie->getDescription() ?></p>
+        <div class="row row-cols-3">
+            <?php foreach ($movies as $keyMovie => $movie) { ?>
+                <div class="col mb-4">
+                    <div class="card h-100">
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <h5 class="card-title"><?php echo $movie->getTitle() ?></h5>
+                            <h6 class="card-subtitle mb-2 text-muted"><?php echo $movie->getPublicationDate() ?></h6>
+                            <ul>
+                                <?php foreach ($movie->type as $typeSingle) { ?>
+                                    <li>
+                                        <?php echo $typeSingle   ?>
+                                    </li>
+                                <?php } ?>
+                            </ul>
+                            <ul>
+                                <?php foreach ($movie->platform as $typeSingle) { ?>
+                                    <li>
+                                        <?php echo $typeSingle   ?>
+                                    </li>
+                                <?php } ?>
+                            </ul>
+                            <p class="card-text"><?php echo $movie->getDescription() ?></p>
+                        </div>
                     </div>
                 </div>
-            </div>
             <?php } ?>
         </div>
     </div>
